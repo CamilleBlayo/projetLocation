@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:f="http://xmlns.jcp.org/jsf/core"
+    xmlns:h="http://xmlns.jcp.org/jsf/html"
+     xmlns:p="http://primefaces.org/ui">
+<!-- cette page indique qu'on utilise les balise h pour html du jsf
+et les balise f qui sont des cores -->
+<h:head>
+    <title>JSF 2.2 Agence location voitures</title>
+</h:head>
+<h:body background="white">
+    <h:form id="jsfexample">
+    	<p:panelGrid columns="2" id="myPanelGrid">
+            <f:facet name="header">Inscription</f:facet>
+            <h:outputLabel for="nom" value="Entrez le nom" />
+            <p:inputText id="nom" value="#{personneManager.personne.nom}" />
+            <h:outputLabel for="prenom" value="Entrez le prénom" />
+            <p:inputText id="prenom" value="#{personneManager.personne.prenom}" />
+            <h:outputLabel for="login" value="Entrez le login" />
+            <p:inputText id="login" value="#{personneManager.personne.login}" />
+            <h:outputLabel for="password" value="Entrez le mot de passe" />
+            <p:inputText id="password" value="#{personneManager.personne.password}" />
+            <h:outputLabel for="email" value="Entrez l''email" />
+            <p:inputText id="email" value="#{personneManager.personne.email}" />
+            <p:commandButton onclick="index" action="#{personneManager.save()}" value="Save" icon="ui-icon-check" style="margin:0" />
+			<h:messages />
+        </p:panelGrid>
+        
+      
+    </h:form>
+    <a href="index.xhtml">Retour</a>
+</h:body>
+</html>

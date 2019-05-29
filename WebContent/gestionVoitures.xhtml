@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<title>Page de location de voiture</title>
+</h:head>
+
+<h:body background="white">
+	<h:form id="jsfexample">
+
+		<p:panelGrid columns="2">
+			<f:facet name="header">
+				Basic PanelGrid
+			</f:facet>
+			<h:outputLabel for="marque" value="Enter marque" />
+			<p:inputText id="marque" value="#{voitureManager.voiture.marque}" />
+
+			<h:outputLabel for="immatriculation" value="Enter immatriculation" />
+			<p:inputText id="immatriculation"
+				value="#{voitureManager.voiture.immatriculation}" />
+
+			<h:outputLabel for="categorie_vehicule"
+				value="Enter categorie_vehicule" />
+			<p:inputText id="categorie_vehicule"
+				value="#{voitureManager.voiture.categorie_vehicule}" />
+
+			<h:outputLabel for="etat_voiture" value="Enter etat_voiture" />
+			<p:inputText id="etat_voiture"
+				value="#{voitureManager.voiture.etat_voiture}" />
+
+			<h:outputLabel for="nombre_de_place" value="Enter nombre_de_place" />
+			<p:inputText id="nombre_de_place"
+				value="#{voitureManager.voiture.nombre_de_place}" />
+
+			<h:outputLabel for="couleur" value="Enter couleur" />
+			<p:inputText id="couleur" value="#{voitureManager.voiture.couleur}" />
+
+			<h:outputLabel for="disponibilite" value="Enter disponibilite" />
+			<p:inputText id="disponibilite"
+				value="#{voitureManager.voiture.disponibilite}" />
+
+			<h:outputLabel for="kilometrage" value="Enter kilometrage" />
+			<p:inputText id="kilometrage"
+				value="#{voitureManager.voiture.kilometrage}" />
+
+			<h:outputLabel for="prix_location" value="Enter prix_location" />
+			<p:inputText id="prix_location"
+				value="#{voitureManager.voiture.prix_location}" />
+
+			<p:commandButton action="#{voitureManager.create}" update="mydata"
+				value="Create" icon="ui-icon-check" style="margin:0" />
+			<p:commandButton action="#{voitureManager.edit()}" update="mydata"
+				value="Edit" icon="ui-icon-check" style="margin:0" />
+			<p:commandButton action="#{voitureManager.clear}" update="mydata"
+				value="Delete" icon="ui-icon-cancel" style="margin:0" />
+
+		</p:panelGrid>
+
+		<p:dataTable value="#{voitureManager.listVoiture}" var="item"
+			id="mydata" selectionMode="single" selection="#{voitureManager.selectedVoit}" rowKey="#{item.id_voiture}">
+			<p:ajax event="rowSelect" listener="#{voitureManager.updateToEdit(item)}" update="@form" process="mydata"></p:ajax>
+
+			<p:column>
+				<f:facet name="header">Marque</f:facet>
+				<h:outputText value="#{item.marque}" />
+			</p:column>
+
+			<p:column>
+				<f:facet name="header">Immatriculation</f:facet>
+				<h:outputText value="#{item.immatriculation}" />
+			</p:column>
+
+			<p:column>
+				<f:facet name="header">Categorie_vehicule</f:facet>
+				<h:outputText value="#{item.categorie_vehicule}" />
+			</p:column>
+
+			<p:column>
+				<f:facet name="header">etat_voiture</f:facet>
+				<h:outputText value="#{item.etat_voiture}" />
+			</p:column>
+
+			<p:column>
+				<f:facet name="header">nombre_de_place</f:facet>
+				<h:outputText value="#{item.nombre_de_place}" />
+			</p:column>
+
+			<p:column>
+				<f:facet name="header">couleur</f:facet>
+				<h:outputText value="#{item.couleur}" />
+			</p:column>
+
+			<p:column>
+				<f:facet name="header">disponibilite</f:facet>
+				<h:outputText value="#{item.disponibilite}" />
+			</p:column>
+
+			<p:column>
+				<f:facet name="header">kilometrage</f:facet>
+				<h:outputText value="#{item.kilometrage}" />
+			</p:column>
+
+			<p:column>
+				<f:facet name="header">prix_location</f:facet>
+				<h:outputText value="#{item.prix_location}" />
+
+			</p:column>
+		</p:dataTable>
+	</h:form>
+	<a href="admin.xhtml">Retour admin</a>
+</h:body>
+</html>

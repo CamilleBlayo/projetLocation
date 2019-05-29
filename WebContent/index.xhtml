@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+<!-- cette page indique qu'on utilise les balise h pour html du jsf
+et les balise f qui sont des cores -->
+<h:head>
+	<title>Réservation de voitures</title>
+	<style type="text/css">
+.value {
+	font-weight: bold;
+}
+
+.ui-carousel {
+	margin-bottom: 20px;
+}
+
+.ui-g div {
+	background-color: #ededed;
+	text-align: center;
+	border: 1px solid #fafafa;
+}
+</style>
+
+</h:head>
+<h:body style="background-color:powderblue">
+	<ui:decorate template="/WEB-INF/Template/BasicTemplate.xhtml">
+		<ui:define name="content">
+			<h1 align="center">Location de Voitures et Utilitaires 100% sur
+				et certifié Satisfait</h1>
+			<h3 align="center">ou pas remboursé</h3>
+			<div class="ui-g">
+				<h:form>
+					<p:panelMenu style="width:300px">
+						<p:submenu label="Location Voiture">
+							<p:menuitem value="Réserver une voiture"
+								action="#{menuView.save}" icon="pi pi-save" />
+							<p:menuitem value="Nos véhicules" action="#{menuView.update}"
+								icon="pi pi-refresh" />
+						</p:submenu>
+						<p:separator />
+						<p:submenu label="Gérer mes réservations">
+							<p:menuitem value="Modifier" action="#{menuView.update}"
+								icon="pi pi-refresh" />
+							<p:menuitem value="Consulter" action="#{menuView.update}"
+								icon="pi pi-refresh" />
+							<p:menuitem value="Imprimer" action="#{menuView.update}"
+								icon="pi pi-refresh" />
+							<p:menuitem value="Annuler" action="#{menuView.update}"
+								icon="pi pi-refresh" />
+						</p:submenu>
+						<p:submenu label="Devenir fidèle">
+							<p:menuitem value="Devenir membre" action="#{menuView.update}"
+								icon="pi pi-refresh" />
+							<p:menuitem value="Voyager plus souvent"
+								action="#{menuView.update}" icon="pi pi-refresh" />
+						</p:submenu>
+						<p:submenu label="Service après location">
+							<p:menuitem value="SOS Crevaison" action="#{menuView.update}"
+								icon="pi pi-refresh" />
+							<p:menuitem value="SOS Vol de voiture"
+								action="#{menuView.update}" icon="pi pi-refresh" />
+						</p:submenu>
+					</p:panelMenu>
+					<br />
+
+					<p:fieldset legend="Se connecter/S'inscrire" toggleable="true"
+						showDetail="false" toggleSpeed="500">
+						<p:ajax event="toggle" listener="#{fieldsetView.handleToggle}" />
+						<h:panelGrid columns="2">
+							<h:outputText value="Login" />
+							<h:inputText value="#{loginBean.login}" />
+							<h:outputText value="Password" />
+							<h:inputText value="#{loginBean.password}" />
+						</h:panelGrid>
+						<h:commandButton action="#{loginBean.connect}" value="Login" />
+						<hr />
+						<a href="gestionClient2.xhtml" text-align="middle"> S'inscrire </a>
+					</p:fieldset>
+
+
+
+
+				</h:form>
+
+
+
+				<div class="ui-g-12 ui-md-10 ui-g-nopad">
+					<div class="ui-g-12" style="font-size: 36px">Voitures en
+						Promotion - Stock et Disponibilités Limités!</div>
+					<div class="ui-g-12 ui-g-nopad">
+						<div class="ui-g"></div>
+
+						<div class="ui-g">
+
+
+							<div class="ui-g-6 ui-md-3">
+								<h1>Back to the Future</h1>
+								<img src="delorean-retour-vers-le-futur-a-vendre-ebay-4.jpg"
+									style="width: 100%" />
+								<p style="font-size: 32px">Embarquer avec Marty et Doc à
+									bord de la Dolean*</p>
+								<p>* Voyage retour non garanti, Marty et Doc en supplément</p>
+
+							</div>
+
+							<div class="ui-g-6 ui-md-3">
+								<h1>Expédition Lunaire</h1>
+								<img src="lunechar.jpg" style="width: 100%" />
+								<p style="font-size: 32px">L'équipe d'objectif Lune vous
+									emmène en expédition pour une vue imprenable sur la Terre *</p>
+								<p>* Prix d'embarquement non-inclus. Apport d'oxygène
+									non-assuré</p>
+							</div>
+
+							<div class="ui-g-6 ui-md-3">
+							<h1>Voyage interstellaire à vitesse lumière</h1>
+								<img src="moonbase.jpg" style="width: 100%" /> <img
+									src="falcon.jpg" style="width: 100%" />
+								<p style="font-size: 36px">Voyage instellaire ur la Falcon
+									Millenium*</p>
+								<p>* Suppléments frais d'assurance à prévoir</p>
+							</div>
+
+
+							<div class="ui-g-6 ui-md-3">
+							<h1>3 millions de lieu sous la mer</h1>
+								<img src="pho54810.jpg" style="width: 100%" />
+								<p style="font-size: 36px">Partez à la découverte des profondeurs*</p>
+								<p>* Véhicule non-homologué contre attaque de requins, pieuvres ou poisson lunes</p>
+							</div>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</ui:define>
+	</ui:decorate>
+</h:body>
+</html>
